@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUZ PARA EMPRENDER Y CONSUMIR</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init('SnkO92YIkaF3geTiL');
+    </script>
     <style>
-        /* Variables de colores - Fáciles de cambiar */
-        :root {
+            /* Variables de colores - Fáciles de cambiar */
+            :root {
             --primary-color: #4a7c59;
             --secondary-color: #3a5a40;
             --accent-color: #588157;
@@ -125,7 +134,7 @@
         /* Hero section - Estilo similar a equistica.org */
         .hero {
             height: 80vh;
-            background-image: url('https://plus.unsplash.com/premium_photo-1661302884827-5d0474877b5f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-image: url('https://img.freepik.com/foto-gratis/gesto-mano-apreton-manos-acuerdo-comercial_53876-130006.jpg?t=st=1741580700~exp=1741584300~hmac=54a3ed069792b97c7654d33c0f1e990525f83dda4783d250bca47678cab387a4&w=1060');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -382,6 +391,51 @@
                 padding: 15px;
             }
         }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .popup-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .popup-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .objectives-carousel {
+            margin: 20px 0;
+        }
+
+        .objective-item {
+            padding: 20px;
+            background: #f0f8ff; /* Color de fondo */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            height: 250px; /* Ajusta la altura según sea necesario */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .objective-item p {
+            margin: 0;
+            color: #333; /* Color del texto */
+        }
+        /* Ocultar la sección de enlaces rápidos en dispositivos móviles */
+@media (max-width: 767px) {
+    .footer-section.enlaces-rapidos {
+        display: none;
+    }
+}
     </style>
 </head>
 <body>
@@ -403,116 +457,56 @@
             </nav>
         </div>
     </header>
-
     <section class="hero">
         <div class="hero-overlay">
             <h2>LUZ PARA EMPRENDER Y CONSUMIR</h2>
             <p>DESDE 2023, ACOMPAÑANDO A EMPRENDEDORES Y PROTEGIENDO A CONSUMIDORES</p>
         </div>
     </section>
-
     <main>
         <section id="quienes-somos" class="content">
             <div class="container">
                 <h2>¿QUIÉNES SOMOS?</h2>
                 <div class="text-content">
                     <p>"LUZ PARA EMPRENDER Y CONSUMIR" es una Asociación Civil nacida en el año 2023, que surge motivada en un meta esencial: desarrollar actividades con la finalidad de acompañar a la diversidad de EMPRENDEDORES que se lanzan por ese sueño de desarrollar su propio negocio.</p>
-                    
                     <p>Como asi tambien, velar por la educación y protección de ese espectro de sujetos que todos conocemos, porque lo somos, de CONSUMIDORES.</p>
-                    
                     <p>Participar, difundir, atender y sobre todo, generar espacios de debate y formación, son algunas de las actividades que podemos mencionar a modo meramente ejemplificativos que realizamos, siempre desde la participación activa de la Sociedad.</p>
-                    
                     <p>Que consideramos que el emprendedurismo y la protección de los consumidores son espacios íntimamente relacionados, debiendo abordarse en espacios donde se coadyuven programas que permitan el desarrollo de negocios en un marco de respeto y protección del consumidor.</p>
-                    
                     <p>Colaboran con nosotros un grupo de personas con profunda vocación de servicio como también, profesionales de las distintas áreas que requiere la actividad, ya sea abogados, contadores, arquitectos, ingenieros, médicos, economistas, licenciados en marketing, entre muchos otros profesionales interesados en participar y acompañar este ambicioso espacio.</p>
                 </div>
             </div>
         </section>
-
         <section id="objetivos" class="content alt-bg">
             <div class="container">
                 <h2>OBJETIVOS</h2>
-                <div class="objectives-list">
+                <div class="objectives-carousel">
                     <div class="objective-item">
-                        <p><strong>a)</strong> El estudio, la investigación y la difusión de programas o capacitaciones que contribuyan a la formación y desarrollo de emprendedores como también al desarrollo de las personas, organizaciones y la sociedad en su conjunto.</p>
+                        <p><strong>I)</strong> El estudio, la investigación y la difusión de programas o capacitaciones que contribuyan a la formación y desarrollo de emprendedores como también al desarrollo de las personas, organizaciones y la sociedad en su conjunto.</p>
                     </div>
-                    
                     <div class="objective-item">
-                        <p><strong>b)</strong> Organización de ciclos de formación y de espacios de dialogo, a los fines de estimular el emprendedurismo como modelo de negocio.</p>
+                        <p><strong>II)</strong> Organización de ciclos de formación y de espacios de dialogo, a los fines de estimular el emprendedurismo como modelo de negocio.</p>
                     </div>
-                    
                     <div class="objective-item">
-                        <p><strong>c)</strong> Mentoría y acompañamiento a pequeñas y medianas empresas.</p>
+                        <p><strong>III)</strong> Mentoría y acompañamiento a pequeñas y medianas empresas.</p>
                     </div>
-                    
                     <div class="objective-item">
-                        <p><strong>d)</strong> Creación, desarrollo y fortalecimiento de negocios inclusivos, de proveedores de grandes empresas y de grupos productivos asociativos.</p>
+                        <p><strong>IV)</strong> Creación, desarrollo y fortalecimiento de negocios inclusivos, de proveedores de grandes empresas y de grupos productivos asociativos.</p>
                     </div>
-                    
                     <div class="objective-item">
-                        <p><strong>e)</strong> La defensa, información y educación del consumidor o usuario, incluso mediante la interposición de acciones administrativas y judiciales y la petición a las autoridades ya sea en representación grupal, colectiva o general.</p>
+                        <p><strong>V)</strong> La defensa, información y educación del consumidor o usuario, incluso mediante la interposición de acciones administrativas y judiciales y la petición a las autoridades ya sea en representación grupal, colectiva o general.</p>
                     </div>
-                    
                     <div class="objective-item">
-                        <p><strong>f)</strong> Velar por el fiel cumplimiento de las leyes, decretos y resoluciones de carácter nacional, provincial o municipal, que hayan sido dictadas para proteger al consumidor.</p>
+                        <p><strong>VI)</strong> Velar por el fiel cumplimiento de las leyes, decretos y resoluciones de carácter nacional, provincial o municipal, que hayan sido dictadas para proteger al consumidor.</p>
                     </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>g)</strong> Proponer a los organismos competentes el dictado de normas jurídicas o medidas de carácter administrativo o legal, destinadas a proteger o a educar a los consumidores.</p>
-                    </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>h)</strong> Colaborar con los organismos oficiales o privados, técnicos o consultivos para el perfeccionamiento de la legislación del consumidor o materia inherente a ellos.</p>
-                    </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>i)</strong> Recibir reclamaciones de consumidores y promover soluciones amigables entre ellos y los responsables del reclamo.</p>
-                    </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>j)</strong> Defender y representar los intereses de los consumidores, ante la justicia, autoridad de aplicación y/u otros organismos oficiales o privados.</p>
-                    </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>k)</strong> Asesorar a los consumidores sobre el consumo de bienes y/o uso de servicios, precios, condiciones de compra, calidad y otras materias de interés.</p>
-                    </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>l)</strong> Organizar, realizar y divulgar estudios de mercado, de control de calidad, estadísticas de precios y suministrar toda otra información de interés para los consumidores.</p>
-                    </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>m)</strong> Promover la educación del consumidor.</p>
-                    </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>n)</strong> Realizar cualquier otra actividad tendiente a la defensa o protección de los intereses del consumidor.</p>
-                    </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>ñ)</strong> Actuar, promover o intervenir en las causas judiciales o administrativas en defensa de intereses de incidencia colectiva o como litisconsortes de personas afectadas como consumidores o usuarios.</p>
-                    </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>o)</strong> Realizar los reclamos de los consumidores o usuarios de bienes y servicios ante los fabricantes, productores, comerciantes, intermediarios o prestadores de servicios que correspondan, que se deriven del incumplimiento de la ley de defensa del consumidor.</p>
-                    </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>p)</strong> Promover o intervenir en las acciones colectivas o de clase en defensa o protección de derechos individuales o de derechos de incidencia colectiva, respecto de sujetos discriminados o afectados por prácticas discriminatorias o de género.</p>
-                    </div>
-                    
-                    <div class="objective-item">
-                        <p><strong>r)</strong> Defensa y protección de los derechos de personas humanas y jurídicas en todas las áreas en donde se desarrolle el tratamiento de datos analógicos, digital y automatizado. En especial cuestiones vinculadas a la privacidad, confidencialidad y perfilamiento entre otras posibles implicancias, pudiendo promover acciones y/o intervenir ante autoridades administrativas, judiciales y/o arbitrales.</p>
-                    </div>
+                    <!-- Añade más objetivos aquí -->
                 </div>
             </div>
         </section>
-
         <section id="contacto" class="content">
             <div class="container">
                 <h2>CONTACTO</h2>
                 <div class="contact-form">
-                    <form>
+                    <form id="contact-form">
                         <div class="form-group">
                             <label for="name">Nombre</label>
                             <input type="text" id="name" name="name" required>
@@ -525,22 +519,12 @@
                             <label for="message">Mensaje</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Enviar mensaje</button>
+                        <button type="submit" class="btn" id="submit-btn">Enviar mensaje</button>
                     </form>
                 </div>
             </div>
         </section>
         
-        <section class="social-section">
-            <div class="container">
-                <h2>Nuestras Redes Sociales</h2>
-                <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="main-footer">
@@ -550,7 +534,7 @@
                     <h3>LUZ PARA EMPRENDER Y CONSUMIR</h3>
                     <p>Asociación Civil dedicada al desarrollo de emprendedores y la protección de consumidores.</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section enlaces-rapidos">
                     <h3>Enlaces rápidos</h3>
                     <ul>
                         <li><a href="#">INICIO</a></li>
@@ -561,8 +545,11 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contacto</h3>
-                    <p>Email: info@luzparaemprender.org</p>
-                    <p>Teléfono: +123 456 7890</p>
+                    <p>Email: juanbadaloni@hotmail.com</p>
+                    <p>Teléfono: +54 9 3413 41-8865</p>
+                    <a href="https://wa.me/543413418865?text=Hola,%20me%20contacto%20por%20Luz%20para%20emprender%20y%20consumir" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -570,5 +557,93 @@
             </div>
         </div>
     </footer>
+
+    <!-- Script para enviar emails con EmailJS -->
+    <script type="text/javascript">
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Mostrar estado de carga
+            document.getElementById('submit-btn').textContent = 'Enviando...';
+            document.getElementById('submit-btn').disabled = true;
+            
+            // Obtener los valores del formulario
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+            
+            // Preparar los parámetros para EmailJS
+            var templateParams = {
+                from_name: name,
+                from_email: email,
+                message: message
+            };
+            
+            // Enviar el email usando EmailJS
+            emailjs.send('service_all2juo', 'template_367ny9o', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Mostrar pop-up de éxito
+                    showPopup('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.', 'popup-success');
+                    
+                    // Resetear el formulario
+                    document.getElementById('contact-form').reset();
+                    
+                    // Restaurar el botón
+                    document.getElementById('submit-btn').textContent = 'Enviar mensaje';
+                    document.getElementById('submit-btn').disabled = false;
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    
+                    // Mostrar pop-up de error
+                    showPopup('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.', 'popup-error');
+                    
+                    // Restaurar el botón
+                    document.getElementById('submit-btn').textContent = 'Enviar mensaje';
+                    document.getElementById('submit-btn').disabled = false;
+                });
+        });
+
+        function showPopup(message, className) {
+            var popup = document.createElement('div');
+            popup.className = 'popup ' + className;
+            popup.textContent = message;
+            document.body.appendChild(popup);
+            popup.style.display = 'block';
+            
+            // Ocultar el pop-up después de 5 segundos
+            setTimeout(function() {
+                popup.style.display = 'none';
+                document.body.removeChild(popup);
+            }, 5000);
+        }
+    </script>
+
+    <!-- Script para carrusel de objetivos -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.objectives-carousel').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: true,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
 </body>
 </html>
