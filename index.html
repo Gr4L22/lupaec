@@ -1,701 +1,865 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LUZ PARA EMPRENDER Y CONSUMIR</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
     <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
     <script type="text/javascript">
-        // https://dashboard.emailjs.com/admin/account
-        emailjs.init('SnkO92YIkaF3geTiL');
+      // https://dashboard.emailjs.com/admin/account
+      emailjs.init("SnkO92YIkaF3geTiL");
     </script>
     <style>
-            /* Variables de colores - Fáciles de cambiar */
-            :root {
-            --primary-color: #4a7c59;
-            --secondary-color: #3a5a40;
-            --accent-color: #588157;
-            --text-color: #333333;
-            --light-text-color: #ffffff;
-            --background-color: #ffffff;
-            --alt-background-color: #f8f9fa;
-            --header-background: #ffffff;
-            --footer-background: #344e41;
-            --border-color: #dddddd;
-        }
+      /* Variables de colores - Fáciles de cambiar */
+      :root {
+        --primary-color: #4a7c59;
+        --secondary-color: #3a5a40;
+        --accent-color: #588157;
+        --text-color: #333333;
+        --light-text-color: #ffffff;
+        --background-color: #ffffff;
+        --alt-background-color: #f8f9fa;
+        --header-background: #ffffff;
+        --footer-background: #344e41;
+        --border-color: #dddddd;
+      }
 
-        /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      /* Reset básico */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+      }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
 
-        /* Estilos del Header - Similar a equistica.org */
+      /* Estilos del Header - Similar a equistica.org */
+      .main-header {
+        background-color: var(--header-background);
+        padding: 15px 0;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+      }
+
+      /* En desktop, el header es sticky */
+      @media (min-width: 768px) {
         .main-header {
-            background-color: var(--header-background);
-            padding: 15px 0;
-            width: 100%;
-            border-bottom: 1px solid #eee;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
         }
+      }
 
-        /* En desktop, el header es sticky */
-        @media (min-width: 768px) {
-            .main-header {
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-            }
-        }
+      .main-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .logo a {
+        text-decoration: none;
+        color: var(--primary-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-        .logo a {
-            text-decoration: none;
-            color: var(--primary-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      .logo h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin: 0;
+      }
 
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin: 0;
-        }
+      .logo .tagline {
+        font-size: 0.8rem;
+        color: var(--secondary-color);
+        letter-spacing: 0.5px;
+      }
 
-        .logo .tagline {
-            font-size: 0.8rem;
-            color: var(--secondary-color);
-            letter-spacing: 0.5px;
-        }
+      .main-nav ul {
+        display: flex;
+        list-style: none;
+      }
 
-        .main-nav ul {
-            display: flex;
-            list-style: none;
-        }
+      .main-nav li {
+        margin-left: 25px;
+      }
 
-        .main-nav li {
-            margin-left: 25px;
-        }
+      .main-nav a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        transition: color 0.3s ease;
+      }
 
-        .main-nav a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-        }
+      .main-nav a:hover {
+        color: var(--primary-color);
+      }
 
-        .main-nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* En móvil, solo se muestra el logo y el header no es sticky */
-        @media (max-width: 767px) {
-            .main-header {
-                position: relative;
-            }
-            
-            .main-nav {
-                display: none;
-            }
-            
-            .logo {
-                margin: 0 auto;
-            }
-        }
-
-        /* Hero section - Estilo similar a equistica.org */
-        .hero {
-            height: 80vh;
-            background-image: url('https://img.freepik.com/foto-gratis/gesto-mano-apreton-manos-acuerdo-comercial_53876-130006.jpg?t=st=1741580700~exp=1741584300~hmac=54a3ed069792b97c7654d33c0f1e990525f83dda4783d250bca47678cab387a4&w=1060');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--light-text-color);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-overlay {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: 0 20px;
+      /* En móvil, solo se muestra el logo y el header no es sticky */
+      @media (max-width: 767px) {
+        .main-header {
+          position: relative;
         }
 
         .hero h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
+          text-align: center;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
+        .main-nav {
+          display: none;
         }
 
-        /* Estilos del contenido principal */
-        .content {
-            padding: 80px 0;
+        .logo {
+          margin: 0 auto;
         }
+      }
 
-        .alt-bg {
-            background-color: var(--alt-background-color);
-        }
+      /* Hero section - Estilo similar a equistica.org */
+      .hero {
+        height: 80vh;
+        background-image: url("https://img.freepik.com/foto-gratis/gesto-mano-apreton-manos-acuerdo-comercial_53876-130006.jpg?t=st=1741580700~exp=1741584300~hmac=54a3ed069792b97c7654d33c0f1e990525f83dda4783d250bca47678cab387a4&w=1060");
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--light-text-color);
+      }
 
-        .content h2 {
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
 
-        /* Estilos para la sección Quiénes Somos */
-        .text-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+      .hero-overlay {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        padding: 0 20px;
+      }
 
-        .text-content p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
+      .hero h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+      }
 
-        /* Estilos para la sección Objetivos */
-        .objectives-list {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+      .hero p {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+      }
 
-        .objective-item {
-            background-color: var(--background-color);
-            border-radius: 0;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 3px solid var(--primary-color);
-        }
+      /* Estilos del contenido principal */
+      .content {
+        padding: 80px 0;
+      }
 
-        .objective-item p {
-            margin: 0;
-        }
+      .alt-bg {
+        background-color: var(--alt-background-color);
+      }
 
-        .objective-item strong {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
+      .content h2 {
+        color: var(--primary-color);
+        margin-bottom: 40px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
 
-        /* Estilos para la sección de contacto */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+      /* Estilos para la sección Quiénes Somos */
+      .text-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+      .text-content p {
+        margin-bottom: 20px;
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
+      /* Estilos para la sección Objetivos */
+      .objectives-list {
+        max-width: 900px;
+        margin: 0 auto;
+      }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 0;
-            font-family: inherit;
-            font-size: 1rem;
-        }
+      .objective-item {
+        background-color: var(--background-color);
+        border-radius: 0;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-left: 3px solid var(--primary-color);
+      }
 
-        .form-group textarea {
-            resize: vertical;
-        }
+      .objective-item p {
+        margin: 0;
+      }
 
-        .btn {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            border: none;
-            padding: 12px 24px;
-            border-radius: 0;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+      .objective-item strong {
+        color: var(--primary-color);
+        font-size: 1.1rem;
+      }
 
-        .btn:hover {
-            background-color: var(--secondary-color);
-        }
+      /* Estilos para la sección de contacto */
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
 
-        /* Sección de redes sociales */
-        .social-section {
-            background-color: var(--background-color);
-            padding: 40px 0;
-            text-align: center;
-        }
+      .form-group {
+        margin-bottom: 20px;
+      }
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
 
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 0;
+        font-family: inherit;
+        font-size: 1rem;
+      }
 
-        .social-icon:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
+      .form-group textarea {
+        resize: vertical;
+      }
 
-        /* Estilos del Footer */
-        .main-footer {
-            background-color: var(--footer-background);
-            color: var(--light-text-color);
-            padding: 40px 0 20px;
-        }
+      .btn {
+        background-color: var(--primary-color);
+        color: var(--light-text-color);
+        border: none;
+        padding: 12px 24px;
+        border-radius: 0;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
 
+      .btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      /* Sección de redes sociales */
+      .social-section {
+        background-color: var(--background-color);
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: var(--light-text-color);
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+      }
+
+      /* Estilos del Footer */
+      .main-footer {
+        background-color: var(--footer-background);
+        color: var(--light-text-color);
+        padding: 40px 0 20px;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .footer-section {
+        flex: 1;
+        min-width: 250px;
+        margin-bottom: 20px;
+        padding-right: 20px;
+      }
+
+      .footer-section h3 {
+        margin-bottom: 15px;
+        color: var(--light-text-color);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .footer-section ul {
+        list-style: none;
+      }
+
+      .footer-section li {
+        margin-bottom: 8px;
+      }
+
+      .footer-section a {
+        color: var(--light-text-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-size: 0.9rem;
+      }
+
+      .footer-section a:hover {
+        color: var(--accent-color);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+      }
+
+      /* Estilos responsivos adicionales */
+      @media (max-width: 767px) {
         .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 30px;
+          flex-direction: column;
         }
 
         .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 20px;
-            padding-right: 20px;
+          width: 100%;
+          padding-right: 0;
         }
 
-        .footer-section h3 {
-            margin-bottom: 15px;
-            color: var(--light-text-color);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 10px;
-            font-size: 1.2rem;
-            font-weight: 600;
+        .hero h2 {
+          font-size: 2rem;
         }
 
-        .footer-section ul {
-            list-style: none;
+        .hero p {
+          font-size: 1rem;
         }
 
-        .footer-section li {
-            margin-bottom: 8px;
-        }
-
-        .footer-section a {
-            color: var(--light-text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .footer-section a:hover {
-            color: var(--accent-color);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-        }
-
-        /* Estilos responsivos adicionales */
-        @media (max-width: 767px) {
-            .footer-content {
-                flex-direction: column;
-            }
-            
-            .footer-section {
-                width: 100%;
-                padding-right: 0;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .content h2 {
-                font-size: 1.8rem;
-            }
-            
-            .objective-item {
-                padding: 15px;
-            }
-        }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-        .popup-success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .popup-error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        .objectives-carousel {
-            margin: 20px 0;
+        .content h2 {
+          font-size: 1.8rem;
         }
 
         .objective-item {
-            padding: 20px;
-            background: #f0f8ff; /* Color de fondo */
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            height: 250px; /* Ajusta la altura según sea necesario */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+          padding: 15px;
         }
-        .objective-item p {
-            margin: 0;
-            color: #333; /* Color del texto */
-        }
-        /* Ocultar la sección de enlaces rápidos en dispositivos móviles */
-@media (max-width: 767px) {
-    .footer-section.enlaces-rapidos {
+      }
+      .popup {
         display: none;
-    }
-}
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+      .popup-success {
+        background-color: #d4edda;
+        color: #155724;
+      }
+      .popup-error {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+      .objectives-carousel {
+        margin: 20px 0;
+      }
+
+      .objective-item {
+        padding: 20px;
+        background: #f0f8ff; /* Color de fondo */
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        height: 250px; /* Ajusta la altura según sea necesario */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .objective-item p {
+        margin: 0;
+        color: #333; /* Color del texto */
+      }
+      /* Ocultar la sección de enlaces rápidos en dispositivos móviles */
+      @media (max-width: 767px) {
+        .footer-section.enlaces-rapidos {
+          display: none;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <a href="/">
-                    <h1>LUZ PARA EMPRENDER</h1>
-                    <p class="tagline">DEFENSA DEL CONSUMIDOR</p>
-                </a>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#">INICIO</a></li>
-                    <li><a href="#quienes-somos">SOBRE NOSOTROS</a></li>
-                    <li><a href="#objetivos">OBJETIVOS</a></li>
-                    <li><a href="#contacto">CONTACTO</a></li>
-                </ul>
-            </nav>
+      <div class="container">
+        <div class="logo">
+          <h1>LUZ PARA EMPRENDER Y CONSUMIR</h1>
+          <p class="tagline">DEFENSA DEL CONSUMIDOR</p>
         </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#">INICIO</a></li>
+            <li><a href="#quienes-somos">SOBRE NOSOTROS</a></li>
+            <li><a href="#objetivos">OBJETIVOS</a></li>
+            <li><a href="#contacto">CONTACTO</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <section class="hero">
-        <div class="hero-overlay">
-            <h2>LUZ PARA EMPRENDER Y CONSUMIR</h2>
-            <p>DESDE 2023, ACOMPAÑANDO A EMPRENDEDORES Y PROTEGIENDO A CONSUMIDORES</p>
-        </div>
+      <div class="hero-overlay">
+        <h2>LUZ PARA EMPRENDER Y CONSUMIR</h2>
+        <p>
+          DESDE 2023, ACOMPAÑANDO A EMPRENDEDORES Y PROTEGIENDO A CONSUMIDORES
+        </p>
+      </div>
     </section>
     <main>
-        <section id="quienes-somos" class="content">
-            <div class="container">
-                <h2>¿QUIÉNES SOMOS?</h2>
-                <div class="text-content">
-                    <p>"LUZ PARA EMPRENDER Y CONSUMIR" es una Asociación Civil nacida en el año 2023, que surge motivada en un meta esencial: desarrollar actividades con la finalidad de acompañar a la diversidad de EMPRENDEDORES que se lanzan por ese sueño de desarrollar su propio negocio.</p>
-                    <p>Como asi tambien, velar por la educación y protección de ese espectro de sujetos que todos conocemos, porque lo somos, de CONSUMIDORES.</p>
-                    <p>Participar, difundir, atender y sobre todo, generar espacios de debate y formación, son algunas de las actividades que podemos mencionar a modo meramente ejemplificativos que realizamos, siempre desde la participación activa de la Sociedad.</p>
-                    <p>Que consideramos que el emprendedurismo y la protección de los consumidores son espacios íntimamente relacionados, debiendo abordarse en espacios donde se coadyuven programas que permitan el desarrollo de negocios en un marco de respeto y protección del consumidor.</p>
-                    <p>Colaboran con nosotros un grupo de personas con profunda vocación de servicio como también, profesionales de las distintas áreas que requiere la actividad, ya sea abogados, contadores, arquitectos, ingenieros, médicos, economistas, licenciados en marketing, entre muchos otros profesionales interesados en participar y acompañar este ambicioso espacio.</p>
-                </div>
+      <section id="quienes-somos" class="content">
+        <div class="container">
+          <h2>¿QUIÉNES SOMOS?</h2>
+          <div class="text-content">
+            <p>
+              "LUZ PARA EMPRENDER Y CONSUMIR" es una Asociación Civil nacida en
+              el año 2023, que surge motivada en un meta esencial: desarrollar
+              actividades con la finalidad de acompañar a la diversidad de
+              EMPRENDEDORES que se lanzan por ese sueño de desarrollar su propio
+              negocio.
+            </p>
+            <p>
+              Como asi tambien, velar por la educación y protección de ese
+              espectro de sujetos que todos conocemos, porque lo somos, de
+              CONSUMIDORES.
+            </p>
+            <p>
+              Participar, difundir, atender y sobre todo, generar espacios de
+              debate y formación, son algunas de las actividades que podemos
+              mencionar a modo meramente ejemplificativos que realizamos,
+              siempre desde la participación activa de la Sociedad.
+            </p>
+            <p>
+              Que consideramos que el emprendedurismo y la protección de los
+              consumidores son espacios íntimamente relacionados, debiendo
+              abordarse en espacios donde se coadyuven programas que permitan el
+              desarrollo de negocios en un marco de respeto y protección del
+              consumidor.
+            </p>
+            <p>
+              Colaboran con nosotros un grupo de personas con profunda vocación
+              de servicio como también, profesionales de las distintas áreas que
+              requiere la actividad, ya sea abogados, contadores, arquitectos,
+              ingenieros, médicos, economistas, licenciados en marketing, entre
+              muchos otros profesionales interesados en participar y acompañar
+              este ambicioso espacio.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="objetivos" class="content alt-bg">
+        <div class="container">
+          <h2>OBJETIVOS</h2>
+          <div class="objectives-carousel">
+            <div class="objective-item">
+              <p>
+                <strong>I)</strong> El estudio, la investigación y la difusión
+                de programas o capacitaciones que contribuyan a la formación y
+                desarrollo de emprendedores como también al desarrollo de las
+                personas, organizaciones y la sociedad en su conjunto.
+              </p>
             </div>
-        </section>
-        <section id="objetivos" class="content alt-bg">
-            <div class="container">
-                <h2>OBJETIVOS</h2>
-                <div class="objectives-carousel">
-                        <div class="objective-item">
-                            <p><strong>I)</strong> El estudio, la investigación y la difusión de programas o capacitaciones que contribuyan a la formación y desarrollo de emprendedores como también al desarrollo de las personas, organizaciones y la sociedad en su conjunto.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>II)</strong> Organización de ciclos de formación y de espacios de diálogo, a los fines de estimular el emprendedurismo como modelo de negocio.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>III)</strong> Mentoría y acompañamiento a pequeñas y medianas empresas.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>IV)</strong> Creación, desarrollo y fortalecimiento de negocios inclusivos, de proveedores de grandes empresas y de grupos productivos asociativos.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>V)</strong> La defensa, información y educación del consumidor o usuario, incluso mediante la interposición de acciones administrativas y judiciales y la petición a las autoridades ya sea en representación grupal, colectiva o general.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>VI)</strong> Velar por el fiel cumplimiento de las leyes, decretos y resoluciones de carácter nacional, provincial o municipal, que hayan sido dictadas para proteger al consumidor.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>VII)</strong> Proponer a los organismos competentes el dictado de normas jurídicas o medidas de carácter administrativo o legal, destinadas a proteger o a educar a los consumidores.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>VIII)</strong> Colaborar con los organismos oficiales o privados, técnicos o consultivos para el perfeccionamiento de la legislación del consumidor o materia inherente a ellos.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>IX)</strong> Recibir reclamaciones de consumidores y promover soluciones amigables entre ellos y los responsables del reclamo.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>X)</strong> Defender y representar los intereses de los consumidores, ante la justicia, autoridad de aplicación y/u otros organismos oficiales o privados.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>XI)</strong> Asesorar a los consumidores sobre el consumo de bienes y/o uso de servicios, precios, condiciones de compra, calidad y otras materias de interés.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>XII)</strong> Organizar, realizar y divulgar estudios de mercado, de control de calidad, estadísticas de precios y suministrar toda otra información de interés para los consumidores.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>XIII)</strong> Promover la educación del consumidor.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>XIV)</strong> Realizar cualquier otra actividad tendiente a la defensa o protección de los intereses del consumidor.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>XV)</strong> Actuar, promover o intervenir en las causas judiciales o administrativas en defensa de intereses de incidencia colectiva o como litisconsortes de personas afectadas como consumidores o usuarios.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>XVI)</strong> Realizar los reclamos de los consumidores o usuarios de bienes y servicios ante los fabricantes, productores, comerciantes, intermediarios o prestadores de servicios que correspondan, que se deriven del incumplimiento de la ley de defensa del consumidor.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>XVII)</strong> Promover o intervenir en las acciones colectivas o de clase en defensa o protección de derechos individuales o de derechos de incidencia colectiva, respecto de sujetos discriminados o afectados por prácticas discriminatorias o de género.</p>
-                        </div>
-                        
-                        <div class="objective-item">
-                            <p><strong>XVIII)</strong> Defensa y protección de los derechos de personas humanas y jurídicas en todas las áreas en donde se desarrolle el tratamiento de datos analógicos, digital y automatizado. En especial cuestiones vinculadas a la privacidad, confidencialidad y perfilamiento entre otras posibles implicancias, pudiendo promover acciones y/o intervenir ante autoridades administrativas, judiciales y/o arbitrales.</p>
-                        </div>
-                </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>II)</strong> Organización de ciclos de formación y de
+                espacios de diálogo, a los fines de estimular el emprendedurismo
+                como modelo de negocio.
+              </p>
             </div>
-        </section>
-        <section id="contacto" class="content">
-            <div class="container">
-                <h2>CONTACTO</h2>
-                <div class="contact-form">
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Nombre</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensaje</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn" id="submit-btn">Enviar mensaje</button>
-                    </form>
-                </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>III)</strong> Mentoría y acompañamiento a pequeñas y
+                medianas empresas.
+              </p>
             </div>
-        </section>
-        
+
+            <div class="objective-item">
+              <p>
+                <strong>IV)</strong> Creación, desarrollo y fortalecimiento de
+                negocios inclusivos, de proveedores de grandes empresas y de
+                grupos productivos asociativos.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>V)</strong> La defensa, información y educación del
+                consumidor o usuario, incluso mediante la interposición de
+                acciones administrativas y judiciales y la petición a las
+                autoridades ya sea en representación grupal, colectiva o
+                general.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>VI)</strong> Velar por el fiel cumplimiento de las
+                leyes, decretos y resoluciones de carácter nacional, provincial
+                o municipal, que hayan sido dictadas para proteger al
+                consumidor.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>VII)</strong> Proponer a los organismos competentes el
+                dictado de normas jurídicas o medidas de carácter administrativo
+                o legal, destinadas a proteger o a educar a los consumidores.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>VIII)</strong> Colaborar con los organismos oficiales o
+                privados, técnicos o consultivos para el perfeccionamiento de la
+                legislación del consumidor o materia inherente a ellos.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>IX)</strong> Recibir reclamaciones de consumidores y
+                promover soluciones amigables entre ellos y los responsables del
+                reclamo.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>X)</strong> Defender y representar los intereses de los
+                consumidores, ante la justicia, autoridad de aplicación y/u
+                otros organismos oficiales o privados.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>XI)</strong> Asesorar a los consumidores sobre el
+                consumo de bienes y/o uso de servicios, precios, condiciones de
+                compra, calidad y otras materias de interés.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>XII)</strong> Organizar, realizar y divulgar estudios de
+                mercado, de control de calidad, estadísticas de precios y
+                suministrar toda otra información de interés para los
+                consumidores.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>XIII)</strong> Promover la educación del consumidor.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>XIV)</strong> Realizar cualquier otra actividad
+                tendiente a la defensa o protección de los intereses del
+                consumidor.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>XV)</strong> Actuar, promover o intervenir en las causas
+                judiciales o administrativas en defensa de intereses de
+                incidencia colectiva o como litisconsortes de personas afectadas
+                como consumidores o usuarios.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>XVI)</strong> Realizar los reclamos de los consumidores
+                o usuarios de bienes y servicios ante los fabricantes,
+                productores, comerciantes, intermediarios o prestadores de
+                servicios que correspondan, que se deriven del incumplimiento de
+                la ley de defensa del consumidor.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>XVII)</strong> Promover o intervenir en las acciones
+                colectivas o de clase en defensa o protección de derechos
+                individuales o de derechos de incidencia colectiva, respecto de
+                sujetos discriminados o afectados por prácticas discriminatorias
+                o de género.
+              </p>
+            </div>
+
+            <div class="objective-item">
+              <p>
+                <strong>XVIII)</strong> Defensa y protección de los derechos de
+                personas humanas y jurídicas en todas las áreas en donde se
+                desarrolle el tratamiento de datos analógicos, digital y
+                automatizado. En especial cuestiones vinculadas a la privacidad,
+                confidencialidad y perfilamiento entre otras posibles
+                implicancias, pudiendo promover acciones y/o intervenir ante
+                autoridades administrativas, judiciales y/o arbitrales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contacto" class="content">
+        <div class="container">
+          <h2>CONTACTO</h2>
+          <div class="contact-form">
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn" id="submit-btn">
+                Enviar mensaje
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>LUZ PARA EMPRENDER Y CONSUMIR</h3>
-                    <p>Asociación Civil dedicada al desarrollo de emprendedores y la protección de consumidores.</p>
-                </div>
-                <div class="footer-section enlaces-rapidos">
-                    <h3>Enlaces rápidos</h3>
-                    <ul>
-                        <li><a href="#">INICIO</a></li>
-                        <li><a href="#quienes-somos">SOBRE NOSOTROS</a></li>
-                        <li><a href="#objetivos">OBJETIVOS</a></li>
-                        <li><a href="#contacto">CONTACTO</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <p>Email: juanbadaloni@hotmail.com</p>
-                    <p>Teléfono: +54 9 3413 41-8865</p>
-                    <a href="https://wa.me/543413418865?text=Hola,%20me%20contacto%20por%20Luz%20para%20emprender%20y%20consumir" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 LUZ PARA EMPRENDER Y CONSUMIR. Todos los derechos reservados.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>LUZ PARA EMPRENDER Y CONSUMIR</h3>
+            <p>
+              Asociación Civil dedicada al desarrollo de emprendedores y la
+              protección de consumidores.
+            </p>
+          </div>
+          <div class="footer-section enlaces-rapidos">
+            <h3>Enlaces rápidos</h3>
+            <ul>
+              <li><a href="#">INICIO</a></li>
+              <li><a href="#quienes-somos">SOBRE NOSOTROS</a></li>
+              <li><a href="#objetivos">OBJETIVOS</a></li>
+              <li><a href="#contacto">CONTACTO</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Contacto</h3>
+            <p>Email: juanbadaloni@hotmail.com</p>
+            <p>Teléfono: +54 9 3413 41-8865</p>
+            <a
+              href="https://wa.me/543413418865?text=Hola,%20me%20contacto%20por%20Luz%20para%20emprender%20y%20consumir"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 LUZ PARA EMPRENDER Y CONSUMIR. Todos los derechos
+            reservados.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <!-- Script para enviar emails con EmailJS -->
     <script type="text/javascript">
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Mostrar estado de carga
-            document.getElementById('submit-btn').textContent = 'Enviando...';
-            document.getElementById('submit-btn').disabled = true;
-            
-            // Obtener los valores del formulario
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var message = document.getElementById('message').value;
-            
-            // Preparar los parámetros para EmailJS
-            var templateParams = {
-                from_name: name,
-                from_email: email,
-                message: message
-            };
-            
-            // Enviar el email usando EmailJS
-            emailjs.send('service_all2juo', 'template_367ny9o', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    
-                    // Mostrar pop-up de éxito
-                    showPopup('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.', 'popup-success');
-                    
-                    // Resetear el formulario
-                    document.getElementById('contact-form').reset();
-                    
-                    // Restaurar el botón
-                    document.getElementById('submit-btn').textContent = 'Enviar mensaje';
-                    document.getElementById('submit-btn').disabled = false;
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    
-                    // Mostrar pop-up de error
-                    showPopup('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.', 'popup-error');
-                    
-                    // Restaurar el botón
-                    document.getElementById('submit-btn').textContent = 'Enviar mensaje';
-                    document.getElementById('submit-btn').disabled = false;
-                });
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Mostrar estado de carga
+          document.getElementById("submit-btn").textContent = "Enviando...";
+          document.getElementById("submit-btn").disabled = true;
+
+          // Obtener los valores del formulario
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var message = document.getElementById("message").value;
+
+          // Preparar los parámetros para EmailJS
+          var templateParams = {
+            from_name: name,
+            from_email: email,
+            message: message,
+          };
+
+          // Enviar el email usando EmailJS
+          emailjs
+            .send("service_all2juo", "template_367ny9o", templateParams)
+            .then(
+              function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+
+                // Mostrar pop-up de éxito
+                showPopup(
+                  "¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.",
+                  "popup-success"
+                );
+
+                // Resetear el formulario
+                document.getElementById("contact-form").reset();
+
+                // Restaurar el botón
+                document.getElementById("submit-btn").textContent =
+                  "Enviar mensaje";
+                document.getElementById("submit-btn").disabled = false;
+              },
+              function (error) {
+                console.log("FAILED...", error);
+
+                // Mostrar pop-up de error
+                showPopup(
+                  "Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.",
+                  "popup-error"
+                );
+
+                // Restaurar el botón
+                document.getElementById("submit-btn").textContent =
+                  "Enviar mensaje";
+                document.getElementById("submit-btn").disabled = false;
+              }
+            );
         });
 
-        function showPopup(message, className) {
-            var popup = document.createElement('div');
-            popup.className = 'popup ' + className;
-            popup.textContent = message;
-            document.body.appendChild(popup);
-            popup.style.display = 'block';
-            
-            // Ocultar el pop-up después de 5 segundos
-            setTimeout(function() {
-                popup.style.display = 'none';
-                document.body.removeChild(popup);
-            }, 5000);
-        }
+      function showPopup(message, className) {
+        var popup = document.createElement("div");
+        popup.className = "popup " + className;
+        popup.textContent = message;
+        document.body.appendChild(popup);
+        popup.style.display = "block";
+
+        // Ocultar el pop-up después de 5 segundos
+        setTimeout(function () {
+          popup.style.display = "none";
+          document.body.removeChild(popup);
+        }, 5000);
+      }
     </script>
 
     <!-- Script para carrusel de objetivos -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    ></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            $('.objectives-carousel').slick({
-                infinite: true,
-                slidesToShow: 3,
+      $(document).ready(function () {
+        $(".objectives-carousel").slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          dots: true,
+          arrows: true,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
                 slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                dots: true,
-                arrows: true,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            });
+              },
+            },
+          ],
         });
+      });
     </script>
-</body>
+  </body>
 </html>
